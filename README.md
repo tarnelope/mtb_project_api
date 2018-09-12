@@ -1,8 +1,6 @@
-# MtbProjectApi
+# MTB Project Api Wrapper Gem
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mtb_project_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A simple wrapper gem to access the [endpoints provided by the public MTB Project API](https://www.mtbproject.com/data).
 
 ## Installation
 
@@ -22,7 +20,13 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To initialize a `MtbProjectApi::Client`, you'll need your MTB Project login **email** and **private key** which you can find [in the right column here](https://www.mtbproject.com/data).
+
+```
+require 'mtb_project_api'
+
+mtb_project_client = MtbProjectApi::Client.new(email, mtb_project_key)
+```
 
 ## Development
 
@@ -32,4 +36,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mtb_project_api.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tarnelope/mtb_project_api.
