@@ -13,7 +13,6 @@ module MtbProjectApi
     # Returns trails for a given query.
     #
     # Required Arguments:
-    # key - Your private key
     # lat - Latitude for a given area
     # lon - Longitude for a given area
     #
@@ -34,7 +33,7 @@ module MtbProjectApi
       )
     end
 
-    # Returns trails for given IDs.
+    # Returns trails for given trail IDs.
     #
     # Required Arguments:
     # ids - one or array of trail IDs
@@ -42,7 +41,7 @@ module MtbProjectApi
       request_by_ids("get-trails-by-id", params)
     end
 
-    # Returns conditions for a given trail.
+    # Returns conditions for given trail IDs.
     #
     # Required Arguments:
     # ids - one or array of trail IDs
@@ -50,7 +49,7 @@ module MtbProjectApi
       request_by_ids("get-conditions", params)
     end
 
-    # Returns up to 200 of the user's to-dos.
+    # Returns up to 200 of the user's to-do trail IDs.
     #
     # Optional Arguments:
     # startPos - The starting index of the list to return. Defaults to 0.
