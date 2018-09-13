@@ -11,11 +11,8 @@ module MtbProjectApi
     shared_examples_for 'a valid request' do |client_method, params|
       it "passes response body to Oj" do
         expect(Oj).to receive(:load).with(response_body)
-        if params
-          subject.send(client_method, params)
-        else
-          subject.send(client_method)
-        end
+
+        subject.send(client_method, params)
       end
     end
 
@@ -96,7 +93,7 @@ module MtbProjectApi
     end
 
     describe '#get_conditions' do
-      
+
     end
 
     describe '#get_to_dos' do
@@ -106,7 +103,7 @@ module MtbProjectApi
           .to_return(status: 200, body: response_body, headers: {})
       end
 
-      it_should_behave_like 'a valid request', :get_to_dos
+      it_should_behave_like 'a valid request', :get_to_dos, {}
     end
   end
 end

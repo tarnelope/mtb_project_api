@@ -1,6 +1,5 @@
 require 'faraday'
 require 'oj'
-require 'geocoder'
 
 module MtbProjectApi
   class Client
@@ -11,6 +10,19 @@ module MtbProjectApi
       @private_key = private_key
     end
 
+    # Returns trails for a given query.
+    #
+    # Required Arguments:
+    # key - Your private key
+    # lat - Latitude for a given area
+    # lon - Longitude for a given area
+    #
+    # Optional Arguments:
+    # maxDistance - Max distance, in miles, from lat, lon. Default: 30. Max: 200.
+    # maxResults - Max number of trails to return. Default: 10. Max: 500.
+    # sort - Values can be 'quality', 'distance'. Default: quality.
+    # minLength - Min trail length, in miles. Default: 0 (no minimum).
+    # minStars - Min star rating, 0-4. Default: 0.
     def get_local_trails(params = {})
       allowed_keys = [:lat, :lon, :maxDistance, :maxResults, :sort, :minLength, :minStars]
       request_params = params.select { |k| allowed_keys.include?(k) }.merge(key: @private_key)
@@ -22,19 +34,31 @@ module MtbProjectApi
       )
     end
 
+    # Returns trails for given IDs.
+    #
+    # Required Arguments:
+    # ids - one or array of trail IDs
     def get_trails_by_id(params = {})
       request_by_ids("get-trails-by-id", params)
     end
 
+    # Returns conditions for a given trail.
+    #
+    # Required Arguments:
+    # ids - one or array of trail IDs
     def get_conditions(params = {})
       request_by_ids("get-conditions", params)
     end
 
-    def get_to_dos
-      request_params = {
+    # Returns up to 200 of the user's to-dos.
+    #
+    # Optional Arguments:
+    # startPos - The starting index of the list to return. Defaults to 0.
+    def get_to_dos(params = {})
+      request_params = params.merge({
         email: @email,
         key: @private_key
-      }
+      })
 
       request(
           http_method: :get,

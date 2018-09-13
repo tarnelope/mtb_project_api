@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Easily access MTB Project's provided endpoints."
   spec.description   = "Easily access MTB Project's provided endpoints."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://www.github.com/tarnelope/mtb_project_api"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -31,7 +31,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "faraday"
   spec.add_dependency "oj"
-  spec.add_dependency "geocoder"
 
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
