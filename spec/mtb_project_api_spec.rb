@@ -3,7 +3,7 @@ RSpec.describe MtbProjectApi do
     expect(MtbProjectApi::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
+  it "import the Client" do
+    expect(MtbProjectApi::Client).not_to be nil
   end
 end
